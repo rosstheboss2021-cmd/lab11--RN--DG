@@ -63,3 +63,40 @@ class TestCalculator(unittest.TestCase):
 # Do not touch this
 if __name__ == "__main__":
     unittest.main()
+def test_multiply(self):
+    self.assertEqual(calculator.multiply(3, 4), 12)
+    self.assertEqual(calculator.multiply(-2, 5), -10)
+    self.assertEqual(calculator.multiply(0, 8), 0)
+def test_divide(self):
+    self.assertEqual(calculator.divide(2, 10), 5)
+    self.assertEqual(calculator.divide(4, 20), 5)
+
+    with self.assertRaises(ZeroDivisionError):
+        calculator.divide(0, 10)
+def test_log_invalid_argument(self):
+    with self.assertRaises(ValueError):
+        calculator.logarithm(0, 10)
+
+    with self.assertRaises(ValueError):
+        calculator.logarithm(-2, 10)
+
+    with self.assertRaises(ValueError):
+        calculator.logarithm(1, 10)
+
+    with self.assertRaises(ValueError):
+        calculator.logarithm(2, -10)
+
+    with self.assertRaises(ValueError):
+        calculator.logarithm(2, 0)
+def test_hypotenuse(self):
+    self.assertAlmostEqual(calculator.hypotenuse(3, 4), 5)
+    self.assertAlmostEqual(calculator.hypotenuse(5, 12), 13)
+    self.assertAlmostEqual(calculator.hypotenuse(-3, 4), 5)
+    self.assertAlmostEqual(calculator.hypotenuse(0, 0), 0)
+def test_sqrt(self):
+    self.assertAlmostEqual(calculator.square_root(25), 5)
+    self.assertAlmostEqual(calculator.square_root(16), 4)
+    self.assertAlmostEqual(calculator.square_root(0), 0)
+
+    with self.assertRaises(ValueError):
+        calculator.square_root(-4)
